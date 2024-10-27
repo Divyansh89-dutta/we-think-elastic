@@ -1,8 +1,5 @@
 function init() {
   gsap.registerPlugin(ScrollTrigger);
-
-  
-  
   const locoScroll = new LocomotiveScroll({
     el: document.querySelector("#main"),
     smooth: true
@@ -183,18 +180,30 @@ function footerAni(){
   })
 }
 footerAni()
-// var item = document.querySelector(".un");
-// var under = document.querySelector(".under")
-// item.addEventListener("mouseenter",function(){
-//   // under.style.width = "0%"
-//   gsap.from(under,{
-//     width:"-50%",
-//     duration:2,
-//   })
-// })
-// item.addEventListener("mouseleave",function(){
-//   under.style.width = "100%"
-// })
+var item = document.querySelector(".un");
+var under = document.querySelector(".under")
+item.addEventListener("mouseenter",function(){
+  // under.style.width = "0%"
+  gsap.from(under,{
+    width:"-50%",
+    duration:2,
+  })
+})
+item.addEventListener("mouseleave",function(){
+  under.style.width = "100%"
+})
 
-
-
+function page5ImagesAnimation(){
+  gsap.from("#page5 img", {
+    opacity: 0,
+    stagger: 0.5,
+    scrollTrigger: {
+      trigger: "#page5",
+      scroller: "#main",
+      start: "top 60%",
+      end: "top 40%",
+      scrub: 2,
+    }
+  });
+}
+page5ImagesAnimation();
